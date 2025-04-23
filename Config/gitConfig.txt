@@ -1,0 +1,41 @@
+// cspell:disable
+
+
+🔄 General Git Workflow
+git init                     # Initialize a new git repository
+git clone <repo_url>        # Clone a remote repo
+git status                  # Check the status of your working directory
+git add <file>              # Stage a file
+git add .                   # Stage all changes
+git commit -m "message"     # Commit staged changes
+git push origin <branch>    # Push to remote branch
+git pull origin <branch>    # Pull latest changes
+
+
+🌱 Branch Management
+git branch                  # List local branches
+git branch <name>           # Create a new branch
+git switch <name>           # Switch to a branch (or use `git checkout`)
+git switch -c <name>        # Create and switch to a new branch
+git merge <branch>          # Merge a branch into the current one
+git branch -d <name>        # Delete a local branch
+
+
+🧹 Clean & Revert
+git restore <file>          # Undo changes in file (unstaged)
+git restore --staged <file> # Unstage a file
+git reset --hard            # Reset all to last commit (CAUTION!)
+git clean -fd               # Remove untracked files and directories
+
+
+🔍 Log & Diff
+git log                     # View commit history
+git log --oneline --graph   # Pretty log
+git diff                    # See unstaged changes
+git diff --staged           # See staged changes
+
+
+📁 Remote Repos
+git remote -v               # Show remote URLs
+git remote add origin <url> # Add remote repository
+git push -u origin main     # Set upstream branch

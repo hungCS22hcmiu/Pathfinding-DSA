@@ -1,0 +1,7 @@
+// spellchecker: disable
+
+npm create vite@latest Pathfinding-DSA -- --template react-ts
+
+npm install -D tailwindcss@3 postcss autoprefixer
+
+go to: https://v3.tailwindcss.com/docs/guides/vite
