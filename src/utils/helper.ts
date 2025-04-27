@@ -1,9 +1,9 @@
-import { MAX_ROWS } from "./constants";
+import { MAX_COLS, MAX_ROWS } from "./constants";
 import { TileType, GridType } from "./types";
 
 const createRow = (row: number, startTile: TileType, endTile: TileType) => {
     const currentRow = [];
-    for (let col = 0; col < MAX_ROWS; col++){
+    for (let col = 0; col < MAX_COLS; col++){
         currentRow.push({
             row,
             col,
@@ -25,4 +25,19 @@ export const createGrid = (startTile: TileType, endTile: TileType) => {
         grid.push(createRow(row, startTile, endTile))
     }
     return grid;
+}
+
+export const checkIfStartOrEnd = (row: number, col: number) => {
+    return (row === 1 && col === 1) || (row === MAX_ROWS - 2 && col === MAX_ROWS - 2);
+}
+
+export const createNewGrid = (grid: GridType, row: number, col: number) => {
+    const newGrid = grid.slice();
+    const newTile = {
+        ...grid[row][col],
+        isWall: !newGrid[row][col].isWall
+    }
+
+    newGrid[row][col] = newTile;
+    return newGrid;
 }

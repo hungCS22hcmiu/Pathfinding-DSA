@@ -1,5 +1,10 @@
 export type AlgorithmType = "DIJKSTRA" | "A_STAR" | "BFS" | "DFS";
 export type MazeType = "NONE" | "BINARY_TREE" | "RECURSIVE_DIVISION" | "RANDOM";
+
+export type MazeSelectType = {
+    name: string;
+    value: MazeType;    
+}
 export type TileType = {
     row: number;
     col: number;
@@ -9,6 +14,7 @@ export type TileType = {
     distance: number;
     isStart: boolean;
     parent: TileType | null;
+    isTraversed: boolean;
 }
 export type GridType = TileType[][];
 
