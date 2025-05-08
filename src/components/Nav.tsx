@@ -1,15 +1,34 @@
+import { useState } from "react";
 import { usePathFinding } from "../hook/usePathFinding";
+import { useTile } from "../hook/useTile";
 import { MAZES } from "../utils/constants";
+import { resetGrid } from "../utils/resetGrid";
 import { MazeType } from "../utils/types";
 import { Select } from "./Select";
+import { runMazeAlgorithm } from "../utils/runMazeAlgorithm";
+import { useSpeed } from "../hook/useSpeed";
 
 export function Nav() {
-    const {maze, setMaze} = usePathFinding();
+    const [isDisabled, setIsDisabled] = useState(false);
+    const {maze, setMaze, grid, setGrid, setIsGraphVisualized} = usePathFinding();
+    const {startTile, endTile} = useTile();
+    const {speed} = useSpeed();
     const handleGenerateMaze = (maze: MazeType) => {
         if (maze === "NONE") {
             setMaze(maze);
+            resetGrid({grid, startTile, endTile});
+            return;
         }
-    } 
+        setMaze(maze);
+        setIsDisabled(true);
+        runMazeAlgorithm({
+            maze, grid, startTile, endTile, setIsDisabled, speed
+        });
+        const newGrid = grid.slice();
+        setGrid(newGrid);
+        setIsGraphVisualized(false);
+    };
+
     return (
         <div className="flex items-center justify-center min-h-[4.5rem] border-b shadow-gray-600 sm:px-5 px-0">
             <div className="flex items-center lg:justify-between justify-center w-full sm:w-[52rem]">

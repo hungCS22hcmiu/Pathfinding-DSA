@@ -19,3 +19,7 @@ export type TileType = {
 export type GridType = TileType[][];
 
 export type SpeedType = 2 | 1 | 0.5;
+export type SpeedSelectType = {
+    name: string;
+    value: SpeedType;
+}
