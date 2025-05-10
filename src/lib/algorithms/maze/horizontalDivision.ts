@@ -53,7 +53,7 @@ export async function horizontalDivision({
         grid,
         startTile,
         endTile,
-        row,
+        row: makeWallAt + 1,
         col,
         height: height - (makeWallAt - row + 1) / 2,
         width,
