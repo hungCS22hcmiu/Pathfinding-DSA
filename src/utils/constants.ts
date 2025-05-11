@@ -40,6 +40,13 @@ export const MAZES: MazeSelectType[] = [
     { name: "Recursive Division", value: "RECURSIVE_DIVISION" },
   ];
 
+export const PATHFINDING_ALGORITHMS: MazeSelectType[] = [
+    {name: "Dijkstra", value: "DIJKSTRA"},
+    {name: "A-Star", value: "A_STAR"},
+    {name: "Breadth First Search", value: "BFS"},
+    {name: "Depth First Search", value: "DFS"},
+]
+
 export const SPEEDS:SpeedSelectType[] = [
     { name: "Fast", value: 0.5 },
     { name: "Medium", value: 1 },
