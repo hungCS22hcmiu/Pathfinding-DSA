@@ -3,16 +3,17 @@ import { usePathFinding } from "../hook/usePathFinding";
 import { useTile } from "../hook/useTile";
 import { MAZES } from "../utils/constants";
 import { resetGrid } from "../utils/resetGrid";
-import { MazeType } from "../utils/types";
+import { AlgorithmType, MazeType } from "../utils/types";
 import { Select } from "./Select";
 import { runMazeAlgorithm } from "../utils/runMazeAlgorithm";
 import { useSpeed } from "../hook/useSpeed";
 import { PlayButton } from "./PlayButton";
 import { runPathfindingAlgorithm } from "../utils/runPathfindingAlgorithm";
 
+
 export function Nav() {
     const [isDisabled, setIsDisabled] = useState(false);
-    const {maze, setMaze, grid, setGrid, setIsGraphVisualized} = usePathFinding();
+    const {maze, setMaze, grid, setGrid, isGraphVisualized, setIsGraphVisualized, algorithm, setAlgorithm} = usePathFinding();
     const {startTile, endTile} = useTile();
     const {speed} = useSpeed();
     const handleGenerateMaze = (maze: MazeType) => {
@@ -38,6 +39,7 @@ export function Nav() {
         return;
         }
         // run the algorithm
+
         const {traversedTiles,path} = runPathfindingAlgorithm({
             algorithm,
             grid,
@@ -69,7 +71,9 @@ export function Nav() {
                     <PlayButton
                         isDisabled={isDisabled}
                         isGraphVisualized={isGraphVisualized}
+
                         handlerRunVisualizer={handlerRunVisualizer}
+                        handlerRunVisualizer={() =>{} }
                     />
 
 
