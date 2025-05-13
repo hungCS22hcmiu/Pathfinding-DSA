@@ -36,5 +36,5 @@ export const runPathfindingAlgorithm = ({
 //             return;
 //         default:
 //             return;
-//     }
-// }
+  }
+}

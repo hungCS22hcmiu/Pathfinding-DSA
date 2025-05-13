@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { usePathFinding } from "../hook/usePathFinding";
 import { useTile } from "../hook/useTile";
-import { MAZES } from "../utils/constants";
+import { MAZES, PATHFINDING_ALGORITHMS } from "../utils/constants";
 import { resetGrid } from "../utils/resetGrid";
 import { AlgorithmType, MazeType } from "../utils/types";
 import { Select } from "./Select";
@@ -73,7 +73,6 @@ export function Nav() {
                         isGraphVisualized={isGraphVisualized}
 
                         handlerRunVisualizer={handlerRunVisualizer}
-                        handlerRunVisualizer={() =>{} }
                     />
 
 
