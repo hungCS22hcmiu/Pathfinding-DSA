@@ -8,6 +8,8 @@ import { Select } from "./Select";
 import { runMazeAlgorithm } from "../utils/runMazeAlgorithm";
 import { useSpeed } from "../hook/useSpeed";
 import { PlayButton } from "./PlayButton";
+import { runPathfindingAlgorithm } from "../utils/runPathfindingAlgorithm";
+
 
 export function Nav() {
     const [isDisabled, setIsDisabled] = useState(false);
@@ -37,6 +39,16 @@ export function Nav() {
         return;
         }
         // run the algorithm
+
+        const {traversedTiles,path} = runPathfindingAlgorithm({
+            algorithm,
+            grid,
+            startTile,
+            endTile,
+        })
+
+        console.log('traversedTiles',traversedTiles);
+        console.log('path',path);
     }
 
     return (
@@ -59,6 +71,8 @@ export function Nav() {
                     <PlayButton
                         isDisabled={isDisabled}
                         isGraphVisualized={isGraphVisualized}
+
+                        handlerRunVisualizer={handlerRunVisualizer}
                         handlerRunVisualizer={() =>{} }
                     />
 
