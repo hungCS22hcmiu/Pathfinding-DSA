@@ -16,6 +16,8 @@ export const runPathfindingAlgorithm = ({
     switch (algorithm) {
         case "BFS":
             return bfs(grid, startTile, endTile);
+        case "DFS":
+            return bfs(grid, startTile, endTile);
         default:
             return bfs(grid, startTile, endTile);
 // import { AlgorithmType, GridType } from './types';
