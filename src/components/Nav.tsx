@@ -9,6 +9,7 @@ import { runMazeAlgorithm } from "../utils/runMazeAlgorithm";
 import { useSpeed } from "../hook/useSpeed";
 import { PlayButton } from "./PlayButton";
 import { runPathfindingAlgorithm } from "../utils/runPathfindingAlgorithm";
+import { animatePath } from "../utils/animatePath";
 
 
 export function Nav({isVisualizationRunningRef} : {isVisualizationRunningRef: RefObject<boolean> }) {
@@ -47,7 +48,7 @@ export function Nav({isVisualizationRunningRef} : {isVisualizationRunningRef: Re
             endTile,
         })
 
-        animatedPath(traversedTiles, path, startTile, endTile, speed);
+        animatePath(traversedTiles, path, startTile, endTile, speed);
         setIsDisabled(true);
         isVisualizationRunningRef.current = true;
         setTimeout(() => {
@@ -85,14 +86,12 @@ export function Nav({isVisualizationRunningRef} : {isVisualizationRunningRef: Re
                     <PlayButton
                         isDisabled={isDisabled}
                         isGraphVisualized={isGraphVisualized}
-
                         handlerRunVisualizer={handlerRunVisualizer}
                     />
-
-
                 </div>
             </div>
-
         </div>
     )
 }
+
+
