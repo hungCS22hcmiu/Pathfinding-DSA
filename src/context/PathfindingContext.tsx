@@ -17,6 +17,7 @@ interface PathfindingContextInterface {
   setIsGraphVisualized: (isGraphVisualized: boolean) => void;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const PathfindingContext = createContext<
   PathfindingContextInterface | undefined
 >(undefined);
