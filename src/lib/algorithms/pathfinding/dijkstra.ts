@@ -3,11 +3,11 @@ import { dropFromQueue, isEqual } from "../../../utils/helper";
 import { GridType, TileType } from "../../../utils/types";
 
 export const dijkstra = (
-    grid: GridType,
-    startTile: TileType,
-    endTile: TileType
-) =>{
-    const traversedTiles = []; // Initialize an array to store traversed tiles
+  grid: GridType,
+  startTile: TileType,
+  endTile: TileType
+) => {
+  const traversedTiles = []; // Initialize an array to store traversed tiles
   const base = grid[startTile.row][startTile.col]; // Get the start tile from the grid
   base.distance = 0; // Set the distance of the start tile to 0
   base.isTraversed = true; // Mark the start tile as traversed
@@ -47,4 +47,4 @@ export const dijkstra = (
     current = current.parent!; // Move to the parent tile
   }
   return { traversedTiles, path }; // Return the traversed tiles and the path
-}
+};
