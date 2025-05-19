@@ -27,7 +27,7 @@ export function Select({
         onChange={onChange}
         disabled={isDisabled}
         className={`
-          bg-gray-800 text-white
+          bg-gray-900 text-white
           px-4 py-2
           rounded-xl shadow-sm
           focus:outline-none focus:ring-2 focus:ring-sky-500
