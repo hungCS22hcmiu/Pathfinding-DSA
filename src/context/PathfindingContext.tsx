@@ -33,7 +33,6 @@ export const PathfindingProvider = ({ children }: { children: ReactNode }) => {
   return (
     <PathfindingContext.Provider
       value={{
-        
         algorithm,
         setAlgorithm,
         maze,
