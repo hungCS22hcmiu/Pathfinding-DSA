@@ -47,7 +47,7 @@ export function Grid({
     <div
       className={twMerge(
         // Base classes
-        "flex items-center flex-col justify-center border-sky-300 mt-10",
+        "flex items-center flex-col justify-center border-sky-300 mt-2",
         // Control Grid height
         `lg:min-h-[${MAX_ROWS * 17}px]  md:min-h-[${
           MAX_ROWS * 15

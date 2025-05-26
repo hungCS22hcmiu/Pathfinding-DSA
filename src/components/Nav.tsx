@@ -1,4 +1,4 @@
-import { MutableRefObject, useState } from "react";
+import { MutableRefObject, useState, useRef } from "react";
 import { usePathFinding } from "../hook/usePathFinding";
 import { useTile } from "../hook/useTile";
 import { EXTENDED_SLEEP_TIME, MAZES, PATHFINDING_ALGORITHMS, SLEEP_TIME, SPEEDS } from "../utils/constants";
@@ -13,9 +13,13 @@ import { animatePath } from "../utils/animatePath";
 
 export function Nav({isVisualizationRunningRef} : {isVisualizationRunningRef: MutableRefObject<boolean> }) {
     const [isDisabled, setIsDisabled] = useState(false);
+    // timer
+    const [time, setTime] = useState(0);
+    const timerRef = useRef<number | null>(null);
     const {maze, setMaze, grid, setGrid, isGraphVisualized, setIsGraphVisualized, algorithm, setAlgorithm} = usePathFinding();
     const {startTile, endTile} = useTile();
     const {speed , setSpeed} = useSpeed();
+
     const handleGenerateMaze = (maze: MazeType) => {
         if (maze === "NONE") {
             setMaze(maze);
@@ -30,14 +34,26 @@ export function Nav({isVisualizationRunningRef} : {isVisualizationRunningRef: Mu
         const newGrid = grid.slice();
         setGrid(newGrid);
         setIsGraphVisualized(false);
+        // timer
+        setTime(0);
+        if (timerRef.current) clearInterval(timerRef.current);
     };
 
     const handlerRunVisualizer = () => {
         if (isGraphVisualized) {
-        setIsGraphVisualized(false);
-        resetGrid({ grid: grid.slice(), startTile, endTile });
-        return;
+            setIsGraphVisualized(false);
+            resetGrid({ grid: grid.slice(), startTile, endTile });
+            setTime(0);
+            if (timerRef.current) clearInterval(timerRef.current);
+            return;
         }
+
+        //start the timer
+        setTime(0);
+        if (timerRef.current) clearInterval(timerRef.current);
+        timerRef.current = setInterval(() => {
+            setTime(prev => prev + 10);
+        }, 10);
         // run the algorithm
 
         const {traversedTiles,path} = runPathfindingAlgorithm({
@@ -56,44 +72,47 @@ export function Nav({isVisualizationRunningRef} : {isVisualizationRunningRef: Mu
             setIsGraphVisualized(true);
             setIsDisabled(false);
             isVisualizationRunningRef.current = false;
+            //stop the timer
+            if (timerRef.current) clearInterval(timerRef.current);
         },( SLEEP_TIME * (traversedTiles.length + SLEEP_TIME *2)+ EXTENDED_SLEEP_TIME*(path.length + 60)*SPEEDS.find((s) => s.value === speed)!.value));
     }
+
     return (
-    <div className="flex items-center justify-center min-h-[4.5rem] border-b bg-gradient-to-r from-sky-800 to-purple-600 shadow-lg px-4 sm:px-6">
-        <div className="flex flex-col sm:flex-row items-center justify-between w-full max-w-6xl space-y-4 sm:space-y-0">
-        
-        {/* Title */}
-        <h1 className="text-white text-2xl font-semibold tracking-wide sm:w-[40%] w-full sm:text-left text-center">
-            Fastest Path
-        </h1>
-        
-        {/* Controls */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
-            <Select
-            label="Maze Type"
-            value={maze}
-            options={MAZES}
-            onChange={(e) => handleGenerateMaze(e.target.value as MazeType)}
-            />
-            <Select
-            label="Algorithm Type"
-            value={algorithm}
-            options={PATHFINDING_ALGORITHMS}
-            onChange={(e) => setAlgorithm(e.target.value as AlgorithmType)}
-            />
-            <Select
-            label="Speed"
-            value={speed}
-            options={SPEEDS}
-            onChange={(e) => setSpeed(parseInt(e.target.value) as SpeedType)}
-            />
-            <PlayButton
-            isDisabled={isDisabled}
-            isGraphVisualized={isGraphVisualized}
-            handlerRunVisualizer={handlerRunVisualizer}
-            />
+        <div className="flex items-center justify-between min-h-[4.5rem] border-b bg-gradient-to-r from-sky-800 to-purple-600 shadow-lg px-4 sm:px-6 w-full">
+            {/* Left: Title */}
+            <h1 className="text-white text-2xl font-semibold tracking-wide">
+                Fastest Path
+            </h1>
+            {/* Center: Controls */}
+            <div className="flex flex-wrap items-center justify-center gap-4">
+                <Select
+                    label="Maze Type"
+                    value={maze}
+                    options={MAZES}
+                    onChange={(e) => handleGenerateMaze(e.target.value as MazeType)}
+                />
+                <Select
+                    label="Algorithm Type"
+                    value={algorithm}
+                    options={PATHFINDING_ALGORITHMS}
+                    onChange={(e) => setAlgorithm(e.target.value as AlgorithmType)}
+                />
+                <Select
+                    label="Speed"
+                    value={speed}
+                    options={SPEEDS}
+                    onChange={(e) => setSpeed(parseInt(e.target.value) as SpeedType)}
+                />
+                <PlayButton
+                    isDisabled={isDisabled}
+                    isGraphVisualized={isGraphVisualized}
+                    handlerRunVisualizer={handlerRunVisualizer}
+                />
+            </div>
+            {/* Right: Timer */}
+            <div className="text-white font-mono text-lg min-w-[110px] text-right">
+                Time: {(time / 1000).toFixed(2)}s
+            </div>
         </div>
-        </div>
-    </div>
     );
 }
