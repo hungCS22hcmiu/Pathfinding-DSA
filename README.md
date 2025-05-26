@@ -1,54 +1,38 @@
-# React + TypeScript + Vite
+# 🌟 Pathfinding Algorithm Visualizer: Explore Algorithms in Action!
+Welcome to the Pathfinding Visualizer—a dynamic, interactive tool that brings algorithms to life! Whether you're a student learning graph theory, a developer curious about React, or just someone who loves watching algorithms paint paths, this project lets you see how Dijkstra, A*, BFS, DFS, and more navigate complex grids.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## 👥 Development Team
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Name         | Student ID | Contribution                          |
+|--------------|------------|---------------------------------------|
+| Le Hung | ITCSIU22   | Team leader: Double check code and algorithm <br> Data Structure: Recursive Division <br> Algorithms: A-Star, Dijkstra  |
+| Tran Dang Nhat   | ITITIU22115   | Data Structure: Binary tree <br> Algorithms: DFS, BFS |
 
-## Expanding the ESLint configuration
+## 🚀 What’s Inside?
+### Pathfinding Algorithms:
+- ▶️ Dijkstra (guaranteed shortest path)
+- ▶️ A* (smart heuristic search)
+- ▶️ BFS (radial "level-by-level" exploration)
+- ▶️ DFS (deep, meandering paths)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Maze Generators:
+- 🧩 Recursive Division: Maze-like partitions with walls.
+- 🌳 Binary Tree: Quirky, bias-driven mazes.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Features You’ll Love:
+- 🖱️ Drag to Draw Walls: Customize your own labyrinth!
+- ⏩ Adjustable Speeds: Slow-mo or lightning-fast—your choice.
+- 🎨 Color-Coded Clarity: Watch nodes light up as they’re visited, traversed, or turned into paths.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ✨ Why This Project?
+- Learn Visually: Algorithms feel abstract until you watch them work.
+- Experiment Freely: Tweak settings, compare strategies, and see trade-offs in real time.
+- Built with Modern Tech: React + TypeScript for clean code, Tailwind CSS for sleek design.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🚀 Quick Start
+```bash
+git clone https://github.com/hungCS22hcmiu/Pathfinding-DSA.git
+cd Pathfinding-DSA
+npm install
+npm run dev
