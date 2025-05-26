@@ -1,6 +1,12 @@
-# 🌟 Pathfinding Algorithm Visualizer: Explore Algorithms in Action!
-Welcome to the Pathfinding Visualizer—a dynamic, interactive tool that brings algorithms to life! Whether you're a student learning graph theory, a developer curious about React, or just someone who loves watching algorithms paint paths, this project lets you see how Dijkstra, A*, BFS, DFS, and more navigate complex grids.
+# 🌟 Pathfinding Algorithm Visualizer
+Welcome to the Pathfinding Visualizer - a dynamic, interactive tool that brings algorithms to life! Whether you're a student learning graph theory, a developer curious about React, or just someone who loves watching algorithms paint paths, this project lets you see how Dijkstra, A*, BFS, DFS, and more navigate complex grids.
 
+
+## 📝 Summary
+This interactive web application demonstrates fundamental pathfinding and maze-generation algorithms through dynamic visualizations. Built with React and TypeScript, it serves as both an educational tool for algorithm enthusiasts and a showcase of modern web development practices. Key achievements include:  
+- 🧠 Intuitive visualization of algorithmic decision-making  
+- 🛠️ Robust state management using React Context API  
+- 🎮 Interactive features like wall drawing and speed control  
 
 ## 👥 Development Team
 
@@ -29,6 +35,32 @@ Welcome to the Pathfinding Visualizer—a dynamic, interactive tool that brings 
 - Learn Visually: Algorithms feel abstract until you watch them work.
 - Experiment Freely: Tweak settings, compare strategies, and see trade-offs in real time.
 - Built with Modern Tech: React + TypeScript for clean code, Tailwind CSS for sleek design.
+
+## 🖼️ Preview  
+
+![Preview](/src/assets/preview/main.png)
+*Main webpage of our project*
+
+### The two maze types:
+- Binary tree
+- Recursive division
+
+A preview example:
+![Binary tree](/src/assets/preview/binary-tree.png)
+*After you choose maze type of Binary tree*
+
+### The four algorithm types
+- BFS (Breath First Search)
+- DFS (Depth First Search)
+- Dijkstra
+- A-Star
+
+A preview example:
+![Preview](/src/assets/preview/BFS.png)
+*After you choose algorithms type of BFS and run it*
+
+## 🎥 Video Demo  
+Watch the visualizer in action: [**Click here to view the video demo**](https://youtube.com/)  
 
 ## 🚀 Quick Start
 ```bash
