@@ -12,7 +12,7 @@ This interactive web application demonstrates fundamental pathfinding and maze-g
 
 | Name         | Student ID | Contribution                          |
 |--------------|------------|---------------------------------------|
-| Le Hung | ITCSIU22   | Team leader: Double check code and algorithm <br> Data Structure: Recursive Division <br> Algorithms: A-Star, Dijkstra  |
+| Le Hung | ITCSIU22271   | Team leader: Double check code and algorithm <br> Data Structure: Recursive Division <br> Algorithms: A-Star, Dijkstra  |
 | Tran Dang Nhat   | ITITIU22115   | Data Structure: Binary tree <br> Algorithms: DFS, BFS |
 
 ## 🚀 What’s Inside?
@@ -68,3 +68,7 @@ git clone https://github.com/hungCS22hcmiu/Pathfinding-DSA.git
 cd Pathfinding-DSA
 npm install
 npm run dev
+```
+
+## References
+The project is inspired by and referenced from the tutorial video: https://www.youtube.com/watch?v=fLpvgCVYjTo 
