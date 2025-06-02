@@ -49,9 +49,11 @@ export const PATHFINDING_ALGORITHMS: AlgorithmSelectType[] = [
 ];
 
 export const SPEEDS: SpeedSelectType[] = [
-  { name: "Slow", value: 2 },
-  { name: "Medium", value: 1 },
-  { name: "Fast", value: 0.5 },
+    { name: "Fast", value: 2 },
+  { name: "Very Fast", value: 1 },
+  { name: "Medium", value: 5 },
+  { name: "Slow", value: 7 },
+  {name: "Very Slow", value: 10 },
 ];
 
 export const SLEEP_TIME = 8;
